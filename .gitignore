@@ -1,0 +1,38 @@
+# Ignore everything by default
+*
+
+# Allow directories
+!*/
+
+# Allow Python source files
+!*.py
+
+# Allow Git configuration
+!.gitignore
+!README.md
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Generated datasets
+dataset/
+processed_dataset/
+rgb_demonstrations_raw/
+
+# Generated images
+*.png
+*.jpg
+*.jpeg
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+EOF

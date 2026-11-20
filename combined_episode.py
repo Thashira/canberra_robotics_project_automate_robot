@@ -59,8 +59,16 @@ np.savez_compressed(
     images=images
 )
 
+metadata_path = os.path.join(raw_folder, "episode_metadata.json")
+
+if os.path.exists(metadata_path):
+    with open(metadata_path) as f:
+        metadata = json.load(f)
+else:
+    metadata = {}
+    
 # Episode metadata
-metadata = {
+metadata.update ({
     "episode": "episode_001",
     "task": "PickPlace",
     "robot": "Panda",
@@ -73,7 +81,7 @@ metadata = {
     "successful": bool(
         np.load(chunks[-1][1], allow_pickle=True)["successful"]
     )
-}
+})
 
 with open(os.path.join(output_folder, "metadata.json"), "w") as f:
     json.dump(metadata, f, indent=4)

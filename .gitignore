@@ -21,6 +21,7 @@ venv/
 
 # Generated datasets
 dataset/
+mimicgen_prototype/
 processed_dataset/
 rgb_demonstrations_raw/
 
@@ -28,6 +29,8 @@ rgb_demonstrations_raw/
 *.png
 *.jpg
 *.jpeg
+
+*.pkl
 
 # IDE files
 .vscode/

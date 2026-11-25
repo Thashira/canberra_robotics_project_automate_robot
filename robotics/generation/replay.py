@@ -8,7 +8,7 @@ Usage:
     python3 validate_action_replay.py --steps 300
     python3 validate_action_replay.py --steps 0        # entire episode
 
-Requires inspect_mimicgen_readiness.py alongside this script.
+Uses the shared PickPlace simulation and raw episode matching helpers.
 """
 
 import argparse
@@ -17,9 +17,10 @@ from pathlib import Path
 
 import numpy as np
 
-from inspect_mimicgen_readiness import (
+from robotics.paths import PROCESSED_DEMONSTRATIONS, RAW_DEMONSTRATIONS, REPORTS
+from robotics.generation.readiness import find_raw_source
+from robotics.simulations.environment import (
     build_environment,
-    find_raw_source,
     load_source_model,
 )
 
@@ -40,12 +41,12 @@ def get_live_poses(env):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--episode", default="processed_dataset/episode_001")
-    parser.add_argument("--raw-root", default="rgb_demonstrations_raw")
+    parser.add_argument("--episode", default=str(PROCESSED_DEMONSTRATIONS / "episode_001"))
+    parser.add_argument("--raw-root", default=str(RAW_DEMONSTRATIONS))
     parser.add_argument("--steps", type=int, default=300,
                         help="number of actions to test; 0 means all")
     parser.add_argument("--report-every", type=int, default=50)
-    parser.add_argument("--output", default="mimicgen_prototype/action_replay_report.json")
+    parser.add_argument("--output", default=str(REPORTS / "action_replay_report.json"))
     args = parser.parse_args()
 
     episode = Path(args.episode)
@@ -173,8 +174,3 @@ def main():
             reference_env.close()
         if env is not None:
             env.close()
-
-
-if __name__ == "__main__":
-    main()
-

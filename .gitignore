@@ -1,41 +1,25 @@
-# Ignore everything by default
+# Allow source and project documentation.
 *
-
-# Allow directories
 !*/
-
-# Allow Python source files
 !*.py
-
-# Allow Git configuration
 !.gitignore
 !README.md
+!CLEANUP.md
+!.vscode/settings.json
+!.vscode/c_cpp_properties.json
 
-# Python cache
 __pycache__/
 *.py[cod]
-
-# Virtual environment
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
 
-# Generated datasets
-dataset/
-mimicgen_prototype/
-processed_dataset/
-rgb_demonstrations_raw/
+/datasets/
+/models/
+/outputs/
 
-# Generated images
-*.png
-*.jpg
-*.jpeg
-
-*.pkl
-
-# IDE files
-.vscode/
+.vscode/browse.vc.db*
 .idea/
-
-# OS files
 .DS_Store
-EOF

@@ -7,7 +7,7 @@
 !CLEANUP.md
 !.vscode/settings.json
 !.vscode/c_cpp_properties.json
-!/cpp/
+
 
 __pycache__/
 *.py[cod]
@@ -24,3 +24,8 @@ venv/
 .vscode/browse.vc.db*
 .idea/
 .DS_Store
+
+cpp/build/
+*.so
+*.o
+*.a

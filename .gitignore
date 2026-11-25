@@ -12,6 +12,7 @@
 !CLEANUP.md
 !.vscode/settings.json
 !.vscode/c_cpp_properties.json
+!.gitattributes
 
 # Python
 __pycache__/

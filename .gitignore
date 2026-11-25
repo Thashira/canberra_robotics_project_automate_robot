@@ -2,13 +2,18 @@
 *
 !*/
 !*.py
+!*.cpp
+!*.hpp
+!*.c
+!*.h
+!CMakeLists.txt
 !.gitignore
 !README.md
 !CLEANUP.md
 !.vscode/settings.json
 !.vscode/c_cpp_properties.json
 
-
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -17,15 +22,19 @@ __pycache__/
 .venv/
 venv/
 
+# Research data and generated artifacts
 /datasets/
 /models/
 /outputs/
+/benchmarks/results/
 
+# IDE
 .vscode/browse.vc.db*
 .idea/
 .DS_Store
 
-cpp/build/
+# C++ build artifacts
+/cpp/build/
 *.so
 *.o
 *.a
